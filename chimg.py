@@ -21,7 +21,7 @@ def style_text(level: str, inp_text: str, *format_args) -> str:
         "warning": Fore.RED
     }
 
-    if level not in level_repl:
+    if level.lower() not in level_repl:
         return style_text("CRITICAL", "Invalid level, All levels list: {}", ", ".join(ele for ele in level_repl))
     
 
