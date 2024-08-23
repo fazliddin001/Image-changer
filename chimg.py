@@ -14,11 +14,11 @@ def style_text(level: str, inp_text: str, *format_args) -> str:
 
 
     level_repl = {
-        "Info": Fore.WHITE,
-        "ERROR": Fore.RED,
-        "DEBUG": Fore.GREEN,
-        "CRITICAL": Fore.RED,
-        "WARNING": Fore.RED
+        "info": Fore.WHITE,
+        "error": Fore.RED,
+        "debug": Fore.GREEN,
+        "critical": Fore.RED,
+        "warning": Fore.RED
     }
 
     if level not in level_repl:
@@ -26,7 +26,7 @@ def style_text(level: str, inp_text: str, *format_args) -> str:
     
 
 
-    text = f"{level_repl[level]}[{level + "]":<10}{Fore.BLUE}  "
+    text = f"{level_repl[level.lower()]}[{level.upper() + "]":<10}{Fore.BLUE}  "
     text += "".join(ele if ele not in repl else repl[ele] for ele in inp_text)
     text += f"{Style.RESET_ALL}"
     return text.format(*format_args)
